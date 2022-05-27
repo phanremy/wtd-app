@@ -89,6 +89,9 @@ group :development do
 
   # Use Rubocop Rails with yml ignoring comments
   gem 'rubocop-rails'
+
+  # Use Byebug
+  gem 'byebug'
 end
 
 group :test do

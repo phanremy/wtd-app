@@ -4,3 +4,11 @@
 <% else %>
   <%= render @posts %>
 <% end %>
+
+<% if @events.count.zero? %>
+  <p>No Events</p>
+<% else %>
+  <% @events.each do |event| %>
+    <%= render 'posts/event', event: event %>
+  <% end %>
+<% end %>

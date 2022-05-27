@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "open-uri"
+
 class PostsController < ApplicationController
   load_and_authorize_resource
 
@@ -8,6 +10,11 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.accessible_by(current_ability)
+    # @events =
+
+    url = set_url
+    data = JSON.parse(URI.parse(url).read)
+    @events = data['records']
   end
 
   def show; end
@@ -63,4 +70,26 @@ class PostsController < ApplicationController
   def set_post
     @post = Post.find(params[:id])
   end
+
+  # rubocop: disable Metrics/MethodLength
+  def set_url
+    <<-URL
+      https://opendata.paris.fr/api/records/1.0/search/?
+      dataset=que-faire-a-paris-&
+      q=date_start>='2022-05-26T22:00:00Z'&
+      q=date_end>='2022-05-31T22:00:00Z'&
+      sort=-date_start&
+      facet=date_start&
+      facet=date_end&
+      facet=tags&
+      facet=address_street&
+      facet=transport&
+      facet=price_type&
+      refine.address_city=Paris&
+      refine.price_type=gratuit&
+      timezone=Europe/Paris&
+    URL
+      .delete("\n").delete(" ")
+  end
+  # rubocop: enable Metrics/MethodLength
 end
