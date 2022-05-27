@@ -2,7 +2,11 @@
   <div class="post">
     <h2><%= link_to post.title, post_path(post), target: '_top' %></h2>
     <div class="post__body">
-      <%= post.body %>
+      <%= post.body %><br>
+      <%= post.starting_date %><br>
+      <%= post.ending_date %><br>
+      <%= post.address %><br>
+      <%= post.link %>
     </div>
   </div>
 <% end %>
