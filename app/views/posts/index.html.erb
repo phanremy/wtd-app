@@ -1,0 +1,6 @@
+<%= link_to "new post", new_post_path %>
+<% if @posts.count.zero? %>
+  <p>No Posts</p>
+<% else %>
+  <%= render @posts %>
+<% end %>
