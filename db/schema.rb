@@ -21,6 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_27_183516) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "link"
+    t.string "image_url"
     t.date "starting_date"
     t.date "ending_date"
     t.string "address"

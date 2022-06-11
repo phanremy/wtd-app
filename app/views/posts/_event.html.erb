@@ -1,6 +1,6 @@
 <%#= turbo_frame_tag dom_id(event) do %>
   <div class="post">
-    <h2><%= link_to event['fields']['title'], event['fields']['url'], target: '_top' %></h2>
+    <h2><%= link_to event['fields']['title'], event['fields']['url'], target: '_blank' %></h2>
     <div class="post__body">
       <%= event['fields']['lead_text'] %><br>
       <%= event['fields']['date_start'] %><br>

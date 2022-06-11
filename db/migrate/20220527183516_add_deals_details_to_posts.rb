@@ -4,6 +4,7 @@ class AddDealsDetailsToPosts < ActiveRecord::Migration[7.0]
   def change
     change_table :posts, bulk: true do |t|
       t.string :link
+      t.string :image_url
       t.date :starting_date
       t.date :ending_date
       t.string :address
