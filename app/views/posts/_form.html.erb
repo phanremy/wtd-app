@@ -2,31 +2,43 @@
   <%= form_with model: post, builder: TailwindBuilder, data: { "turbo-frame" => "_top" } do |f| %>
     <div class="field">
       <%= f.label :title %>
-      <%= f.text_field :title, class: 'w-100' %>
+      <div class="flex">
+        <%= f.text_field :title, class: 'w-100' %>
+      </div>
     </div>
     <div class="field">
       <%= f.label :body %>
-      <%= f.text_area :body %>
+      <div class="flex">
+        <%= f.text_area :body %>
+      </div>
     </div>
     <div class="field">
       <%= f.label :starting_date %>
-      <%= f.date_field :starting_date %>
+      <div class="flex">
+        <%= f.date_field :starting_date %>
+      </div>
     </div>
     <div class="field">
       <%= f.label :ending_date %>
-      <%= f.date_field :ending_date %>
+      <div class="flex">
+        <%= f.date_field :ending_date %>
+      </div>
     </div>
     <div class="field">
       <%= f.label :address %>
-      <%= f.text_field :address, class: 'w-100' %>
+      <div class="flex">
+        <%= f.text_field :address, class: 'w-100' %>
+      </div>
     </div>
     <div class="field">
       <%= f.label :link %>
-      <%= f.text_field :link, class: 'w-100' %>
+      <div class="flex">
+        <%= f.text_field :link, class: 'w-100' %>
+      </div>
     </div>
     <div class="field">
       <%= f.hidden_field :user_id, value: current_user&.id %>
-      <%= f.submit t('submit') %>
+      <%= f.submit 'Submit' %>
     </div>
   <% end %>
 <% end %>
