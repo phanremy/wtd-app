@@ -66,6 +66,9 @@ gem 'pagy'
 # Use Importmap Rails to replace webpacker
 gem 'importmap-rails'
 
+# Use Tailwindcss-Rails to use Tailwind
+gem 'tailwindcss-rails', '~> 2.0'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
