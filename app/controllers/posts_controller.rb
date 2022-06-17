@@ -10,11 +10,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.accessible_by(current_ability)
-    # @events =
-
-    url = set_url
-    data = JSON.parse(URI.parse(url).read)
-    @events = data['records']
+    @events = JSON.parse(URI.parse(paris_api_url).read)['records']
   end
 
   def show; end
@@ -72,7 +68,7 @@ class PostsController < ApplicationController
   end
 
   # rubocop: disable Metrics/MethodLength
-  def set_url
+  def paris_api_url
     <<-URL
       https://opendata.paris.fr/api/records/1.0/search/?
       dataset=que-faire-a-paris-&

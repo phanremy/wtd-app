@@ -1,12 +1,9 @@
 <%= turbo_frame_tag dom_id(post) do %>
-  <div class="post">
-    <h2><%= link_to post.title, post_path(post), target: '_top' %></h2>
-    <div class="post__body">
-      <%= post.body %><br>
-      <%= post.starting_date %><br>
-      <%= post.ending_date %><br>
-      <%= post.address %><br>
-      <%= post.link %>
-    </div>
-  </div>
+  <%= render 'shared/post_card', link: post_path(post),
+                                 image: false,
+                                 title: post.title,
+                                 body: post.body,
+                                 address: post.address,
+                                 starting_date: post.starting_date,
+                                 ending_date: post.ending_date %>
 <% end %>

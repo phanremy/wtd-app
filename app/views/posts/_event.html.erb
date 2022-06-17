@@ -1,11 +1,9 @@
 <%#= turbo_frame_tag dom_id(event) do %>
-  <div class="post">
-    <h2><%= link_to event['fields']['title'], event['fields']['url'], target: '_blank' %></h2>
-    <div class="post__body">
-      <%= event['fields']['lead_text'] %><br>
-      <%= event['fields']['date_start'] %><br>
-      <%= event['fields']['date_end'] %><br>
-      <%= event['fields']['address_street'] %><br>
-    </div>
-  </div>
+  <%= render 'shared/post_card', link: event['fields']['url'],
+                                 image: event['fields']['cover_url'],
+                                 title: event['fields']['title'],
+                                 body: event['fields']['lead_text'],
+                                 address: event['fields']['address_street'],
+                                 starting_date: event['fields']['date_start'],
+                                 ending_date: event['fields']['date_end'] %>
 <%# end %>
