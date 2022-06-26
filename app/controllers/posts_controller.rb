@@ -22,8 +22,10 @@ class PostsController < ApplicationController
 
     render turbo_stream: turbo_stream.append(
       :main,
-      partial: 'posts/form_modal',
-      locals: {}
+      partial: 'shared/modal',
+      locals: { content: render_to_string(partial: 'posts/form',
+                                          layout: false,
+                                          locals: { post: @post }) }
     )
   end
 
