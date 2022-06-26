@@ -9,5 +9,15 @@
 admin = User.create(email: 'admin@example.com', password: 'password')
 visitor = User.create(email: 'visitor@example.com', password: 'password')
 
-Post.create(title: 'Visitor\'s first post', body: 'This is the first post of the visitor', user: visitor)
-Post.create(title: 'Admin\'s first post', body: 'This is the first post of the admin', user: admin)
+def post_params
+  {
+    address: 'Champ de Mars, 5 Av. Anatole France, 75007 Paris',
+    starting_date: Time.zone.today + 1.month,
+    ending_date: Time.zone.today + 1.month
+  }
+end
+
+Post.create_with(post_params)
+    .create!(title: 'Visitor\'s first post', body: 'This is the first post of the visitor', user: visitor)
+Post.create_with(post_params)
+    .create!(title: 'Admin\'s first post', body: 'This is the first post of the admin', user: admin)
