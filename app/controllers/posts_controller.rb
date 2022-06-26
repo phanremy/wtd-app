@@ -19,6 +19,12 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+
+    render turbo_stream: turbo_stream.append(
+      :main,
+      partial: 'posts/form_modal',
+      locals: {}
+    )
   end
 
   def create

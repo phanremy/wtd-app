@@ -11,9 +11,11 @@
   </head>
 
   <body>
-    <%= turbo_frame_tag 'flash' do %>
-      <%= render 'shared/flash' %>
+    <%= turbo_frame_tag :main do %>
+      <%= turbo_frame_tag :flash do %>
+        <%= render 'shared/flash' %>
+      <% end %>
+      <%= yield %>
     <% end %>
-    <%= yield %>
   </body>
 </html>

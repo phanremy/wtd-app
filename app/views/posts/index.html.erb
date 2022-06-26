@@ -1,19 +1,19 @@
 <div class="w-full flex items-center justify-center py-6">
- <%= link_to "New Post", new_post_path, class: 'text-center bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded' %>
+ <%= link_to "New Post", new_post_path, data: { turbo: true }, class: 'text-center bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded' %>
 </div>
 
-  <div class="container mx-auto">
-    <%= turbo_frame_tag :posts do %>
-      <%= render @posts %>
+<div class="container mx-auto">
+  <%= turbo_frame_tag :posts do %>
+    <%= render @posts %>
 
-      <% @events.each do |event| %>
-        <%= render 'posts/event', event: event %>
-      <% end %>
-
-      <% if @events.count.zero? && @posts.count.zero? %>
-        <div class="w-full flex justify-center items-center">
-          <p> No events found, try playing with the filters!</p>
-        </div>
-      <% end %>
+    <% @events.each do |event| %>
+      <%= render 'posts/event', event: event %>
     <% end %>
-  </div>
+
+    <% if @events.count.zero? && @posts.count.zero? %>
+      <div class="w-full flex justify-center items-center">
+        <p> No events found, try playing with the filters!</p>
+      </div>
+    <% end %>
+  <% end %>
+</div>
