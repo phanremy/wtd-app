@@ -35,5 +35,5 @@
 
 /node_modules
 
-#ignore byebug
+# Ignore Byebug command history file.
 .byebug_history
