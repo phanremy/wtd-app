@@ -3,6 +3,8 @@
 require "open-uri"
 
 class PostsController < ApplicationController
+  include FilterEvents
+
   load_and_authorize_resource
 
   before_action :set_post, except: %i[index new create]
@@ -10,7 +12,9 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.accessible_by(current_ability)
-    @events = JSON.parse(URI.parse(paris_api_url).read)['records']
+    @events = filtered_events(title: '',
+                              starting_date: '2022-05-26',
+                              ending_date: '2022-05-31')
   end
 
   def show; end
@@ -74,26 +78,4 @@ class PostsController < ApplicationController
   def set_post
     @post = Post.find(params[:id])
   end
-
-  # rubocop: disable Metrics/MethodLength
-  def paris_api_url
-    <<-URL
-      https://opendata.paris.fr/api/records/1.0/search/?
-      dataset=que-faire-a-paris-&
-      q=date_start>='2022-05-26T22:00:00Z'&
-      q=date_end>='2022-05-31T22:00:00Z'&
-      sort=-date_start&
-      facet=date_start&
-      facet=date_end&
-      facet=tags&
-      facet=address_street&
-      facet=transport&
-      facet=price_type&
-      refine.address_city=Paris&
-      refine.price_type=gratuit&
-      timezone=Europe/Paris&
-    URL
-      .delete("\n").delete(" ")
-  end
-  # rubocop: enable Metrics/MethodLength
 end

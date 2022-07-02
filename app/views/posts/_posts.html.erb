@@ -1,0 +1,11 @@
+<%= render posts %>
+
+<% events.each do |event| %>
+  <%= render 'posts/event', event: event %>
+<% end %>
+
+<% if events.count.zero? && posts.count.zero? %>
+  <div class="w-full flex justify-center items-center">
+    <p> No events found, try playing with the filters!</p>
+  </div>
+<% end %>
