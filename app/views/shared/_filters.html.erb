@@ -1,0 +1,25 @@
+<div class="w-full flex items-center justify-center pb-6">
+  <%= turbo_frame_tag :filters, class:'w-full', data: { "controller": "trigger-form", "trigger-form-event-value": "change" } do %>
+    <%= form_with url: posts_filters_path, data: { "turbo-frame" => true, "trigger-form-target": "form" } do |f| %>
+      <div class="w-50 flex flex-wrap justify-around align-center">
+        <%# <div class="relative my-4 border-b-2 focus-within:border-blue-500">
+          <input type="text" name="username" placeholder=" " class="block w-full appearance-none focus:outline-none bg-transparent" />
+          <label for="username" class="absolute top-0 -z-1 duration-300 origin-0">Username</label>
+        </div> %>
+        <div class="relative my-4 border-b-2 focus-within:border-blue-500">
+          <%#= f.text_field :title, class: 'block w-full appearance-none focus:outline-none bg-transparent', placeholder:" " %>
+          <%= f.text_field :title, class: 'block w-full appearance-none focus:outline-none bg-transparent border-none', placeholder: "", data: { "trigger-form-target": "trigger" } %>
+          <%= f.label :title, class: 'absolute top-0 -z-1 duration-300 origin-0', placeholder: ' ' %>
+        </div>
+        <div class="relative my-4 border-b-2 focus-within:border-blue-500">
+          <%= f.date_field :starting_date, class: 'block w-full appearance-none focus:outline-none bg-transparent border-none', data: { "trigger-form-target": "trigger" } %>
+          <%= f.label :starting_date, class: 'absolute top-0 -z-1 duration-300 origin-0' %>
+        </div>
+        <div class="relative my-4 border-b-2 focus-within:border-blue-500">
+          <%= f.date_field :ending_date, class: 'block w-full appearance-none focus:outline-none bg-transparent border-none', data: { "trigger-form-target": "trigger" } %>
+          <%= f.label :ending_date, class: 'absolute top-0 -z-1 duration-300 origin-0' %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
