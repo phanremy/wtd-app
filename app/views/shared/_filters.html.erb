@@ -6,18 +6,21 @@
           <input type="text" name="username" placeholder=" " class="block w-full appearance-none focus:outline-none bg-transparent" />
           <label for="username" class="absolute top-0 -z-1 duration-300 origin-0">Username</label>
         </div> %>
+        <%# <div class="relative my-4 border-b-2 focus-within:border-blue-500"> %>
+          <%#= f.text_field :title, class: 'block w-full appearance-none focus:outline-none bg-transparent border-none', placeholder: "", data: { "trigger-form-target": "trigger" } %>
+          <%#= f.label :title, class: 'absolute top-0 -z-1 duration-300 origin-0', placeholder: ' ' %>
+        <%# </div> %>
         <div class="relative my-4 border-b-2 focus-within:border-blue-500">
-          <%#= f.text_field :title, class: 'block w-full appearance-none focus:outline-none bg-transparent', placeholder:" " %>
-          <%= f.text_field :title, class: 'block w-full appearance-none focus:outline-none bg-transparent border-none', placeholder: "", data: { "trigger-form-target": "trigger" } %>
-          <%= f.label :title, class: 'absolute top-0 -z-1 duration-300 origin-0', placeholder: ' ' %>
+          <%= f.select :tags, tag_options, {}, { class: "block w-full appearance-none focus:outline-none bg-transparent border-none", multiple: false, data: { 'trigger-form-target': 'trigger' } }  %>
+          <%= f.label :tags, class: 'absolute top-0 left-0 -z-1 duration-300 origin-0', placeholder: ' ' %>
         </div>
         <div class="relative my-4 border-b-2 focus-within:border-blue-500">
-          <%= f.date_field :starting_date, class: 'block w-full appearance-none focus:outline-none bg-transparent border-none', data: { "trigger-form-target": "trigger" } %>
-          <%= f.label :starting_date, class: 'absolute top-0 -z-1 duration-300 origin-0' %>
+          <%= f.date_field :starting_date, value: Time.zone.today, class: 'block w-full appearance-none focus:outline-none bg-transparent border-none', data: { "trigger-form-target": "trigger" } %>
+          <%= f.label :starting_date, class: 'absolute top-0 left-0 -z-1 duration-300 origin-0' %>
         </div>
         <div class="relative my-4 border-b-2 focus-within:border-blue-500">
-          <%= f.date_field :ending_date, class: 'block w-full appearance-none focus:outline-none bg-transparent border-none', data: { "trigger-form-target": "trigger" } %>
-          <%= f.label :ending_date, class: 'absolute top-0 -z-1 duration-300 origin-0' %>
+          <%= f.date_field :ending_date, value: Time.zone.today, class: 'block w-full appearance-none focus:outline-none bg-transparent border-none', data: { "trigger-form-target": "trigger" } %>
+          <%= f.label :ending_date, class: 'absolute top-0 left-0 -z-1 duration-300 origin-0' %>
         </div>
       </div>
     <% end %>

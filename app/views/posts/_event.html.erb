@@ -5,5 +5,6 @@
                                  body: event['fields']['lead_text'],
                                  address: event['fields']['address_street'],
                                  starting_date: event['fields']['date_start'],
-                                 ending_date: event['fields']['date_end'] %>
+                                 ending_date: event['fields']['date_end'],
+                                 tags: parse_tags(event['fields']['tags']) %>
 <%# end %>

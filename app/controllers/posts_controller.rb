@@ -3,7 +3,7 @@
 require "open-uri"
 
 class PostsController < ApplicationController
-  include FilterEvents
+  include Events::Filter
 
   load_and_authorize_resource
 
@@ -12,9 +12,9 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.accessible_by(current_ability)
-    @events = filtered_events(title: '',
-                              starting_date: '2022-05-26',
-                              ending_date: '2022-05-31')
+    @events = filtered_events(tags: [],
+                              starting_date: Time.zone.today.strftime('%Y-%m-%d'),
+                              ending_date: Time.zone.today.strftime('%Y-%m-%d'))
   end
 
   def show; end
