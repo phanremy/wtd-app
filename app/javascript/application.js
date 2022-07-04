@@ -2,9 +2,11 @@
 import "@hotwired/turbo-rails"
 import { Application } from "@hotwired/stimulus"
 
-import ModalController from "./controllers/modal_controller"
+import ModalDisplayController from "./controllers/modal_display_controller"
+import ModalOpenController from "./controllers/modal_open_controller"
 import TriggerFormController from "./controllers/trigger_form_controller"
 
 window.Stimulus = Application.start()
-Stimulus.register("modal", ModalController)
+Stimulus.register("modal-display", ModalDisplayController)
+Stimulus.register("modal-open", ModalOpenController)
 Stimulus.register("trigger-form", TriggerFormController)

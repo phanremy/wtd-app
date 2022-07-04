@@ -9,14 +9,9 @@ import { Controller } from '@hotwired/stimulus'
  *
  */
 export default class extends Controller {
-  static targets = ['']
-  static values = {}
+  static targets = ['modal']
 
-  connect () {
-    console.log('modal opening')
-  }
-
-  close () {
-    this.element.remove()
+  process () {
+    document.getElementById('main').insertAdjacentHTML('afterbegin', this.modalTarget.innerHTML)
   }
 }

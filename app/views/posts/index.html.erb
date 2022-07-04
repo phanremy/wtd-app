@@ -6,7 +6,7 @@
 <%= render 'shared/filters' %>
 
 <div class="container mx-auto">
-  <%= turbo_frame_tag :posts, class:'flex flex-wrap' do %>
+  <%= turbo_frame_tag :posts, class:'' do %>
     <%= render 'posts', posts: @posts, events: @events %>
   <% end %>
 </div>
