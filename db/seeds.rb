@@ -6,9 +6,6 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-admin = User.create(email: 'admin@example.com', password: 'password')
-visitor = User.create(email: 'visitor@example.com', password: 'password')
-
 def post_params
   {
     address: 'Champ de Mars, 5 Av. Anatole France, 75007 Paris',
@@ -17,7 +14,12 @@ def post_params
   }
 end
 
-Post.create_with(post_params)
-    .create!(title: 'Visitor\'s first post', body: 'This is the first post of the visitor', user: visitor)
-Post.create_with(post_params)
-    .create!(title: 'Admin\'s first post', body: 'This is the first post of the admin', user: admin)
+if Rails.env.development?
+  admin = User.create(email: 'admin@example.com', password: 'password')
+  visitor = User.create(email: 'visitor@example.com', password: 'password')
+
+  Post.create_with(post_params)
+      .create!(title: 'Visitor\'s first post', body: 'This is the first post of the visitor', user: visitor)
+  Post.create_with(post_params)
+      .create!(title: 'Admin\'s first post', body: 'This is the first post of the admin', user: admin)
+end
