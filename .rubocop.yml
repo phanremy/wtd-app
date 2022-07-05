@@ -74,10 +74,6 @@ Style/SpecialGlobalVars:
   Exclude:
     - bin/bundle
 
-Style/InverseMethods:
-  Exclude:
-    - bin/yarn
-
 Style/GlobalStdStream:
   Exclude:
     - config/environments/production.rb
