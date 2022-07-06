@@ -1,10 +1,12 @@
 <%= turbo_frame_tag dom_id(post) do %>
-  <%= render 'shared/post_card', link: post_path(post),
+  <%= render 'shared/post_card', link: "https://facebook.com",
                                  image: false,
                                  title: post.title,
                                  body: post.body,
                                  address: post.address,
                                  starting_date: post.starting_date,
                                  ending_date: post.ending_date,
+                                 date_description: '',
+                                 description: '',
                                  tags: [] %>
 <% end %>

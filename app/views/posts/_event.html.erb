@@ -6,5 +6,7 @@
                                  address: event['fields']['address_street'],
                                  starting_date: event['fields']['date_start'],
                                  ending_date: event['fields']['date_end'],
+                                 date_description: event['fields']['date_description'],
+                                 description: event['fields']['description'],
                                  tags: parse_tags(event['fields']['tags']) %>
 <%# end %>

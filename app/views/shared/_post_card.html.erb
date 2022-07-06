@@ -1,20 +1,17 @@
 <% image_src = image || 'https://source.unsplash.com/random/300×300' %>
 <div class="flex items-center justify-center" data-controller="modal-open">
   <div class="max-w-sm rounded overflow-hidden shadow-lg mb-2 mx-1 cursor-pointer" style="min-width: 384px!important" data-action="click->modal-open#process">
-    <%#= link_to link, target: '_blank' do %>
     <div class="h-80 w-full" style="background-image:url(<%= image_src %>); background-position: center; background-repeat: no-repeat; background-size: cover;">
     </div>
-
-    <%# end %>
     <div class="px-6 py-4">
-      <div class="font-bold text-xl mb-2" style="height:56px !important" ><%= title %></div>
+      <div class="font-bold text-xl mb-2" style="height:56px !important" ><%= title.truncate(50) %></div>
       <div class="font-bold text-sm mb-2">
         Du <%= l(starting_date.to_datetime, locale: params[:locale]) %> au <%= l(ending_date.to_datetime, locale: params[:locale])  %>
       </div>
+      <div class="font-bold text-sm mb-2"><%= address %></div>
       <p class="text-gray-700 text-base mb-2" style="height:72px !important">
         <%= body.truncate(100, separator: '.')%><br>
       </p>
-      <div class="font-bold text-sm mb-2"><%= address %></div>
       <% if tags %>
         <div class="flex flex-wrap pt-2">
           <% tags.each do |tag| %>
@@ -35,6 +32,8 @@
                                                                    address: address,
                                                                    starting_date: starting_date,
                                                                    ending_date: ending_date,
+                                                                   date_description: date_description,
+                                                                   description: description,
                                                                    tags: tags
                                                                  }) %>
   </template>

@@ -1,18 +1,26 @@
 <% image_src = image || 'https://source.unsplash.com/random/300×300' %>
 <div class="flex items-center justify-center" data-controller="modal-open" data-action="click->modal-open#process">
   <div class="lg:flex sm:block rounded overflow-hidden mb-2">
-    <%= link_to link, target: '_blank' do %>
-      <img class="w-full" src="<%= image_src %>" alt="">
-    <% end %>
+    <img class="lg:w-1/3 sm:w-full" src="<%= image_src %>" alt="" style="height: 100%; width:50%">
     <div class="px-6 py-4">
       <div class="font-bold text-xl mb-2"><%= title %></div>
       <div class="font-bold text-sm mb-2">
-        Du <%= l(starting_date.to_datetime, locale: params[:locale]) %> au <%= l(ending_date.to_datetime, locale: params[:locale])  %>
+        <% if date_description.blank? %>
+          Du <%= l(starting_date.to_datetime, locale: params[:locale]) %> au <%= l(ending_date.to_datetime, locale: params[:locale])  %>
+        <% else %>
+          <%= sanitize date_description %>
+        <% end %>
       </div>
+      <div class="font-bold text-sm mb-2"><%= address %></div>
       <p class="text-gray-700 text-base mb-2">
         <%= body %><br>
       </p>
-      <div class="font-bold text-sm mb-2"><%= address %></div>
+      <% unless description.blank? %>
+        <div class="font-bold text-sm mb-2">Description</div>
+        <div class="text-gray-700 text-base mb-2">
+          <%= sanitize description %>
+        </div>
+      <% end %>
       <% if tags %>
         <div class="flex flex-wrap pt-2">
           <% tags.each do |tag| %>
@@ -22,6 +30,11 @@
           <% end %>
         </div>
       <% end %>
+
+      <div class="flex flex-wrap pt-5">
+        <%= link_to "Voir Lien", link, target: '_blank', class: 'text-center bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded mr-2' %>
+        <%= link_to "Voir sur Google Maps", "https://www.google.com/maps/place/Paris#{CGI::escape([' ', address].join)}", target: '_blank', class: 'text-center bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded' %>
+      </div>
     </div>
   </div>
 </div>
