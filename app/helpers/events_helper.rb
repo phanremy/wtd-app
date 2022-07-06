@@ -3,7 +3,6 @@
 module EventsHelper
   TAG_OPTIONS =
     [
-      ['', ''],
       ['Art contemporain', 'Art+contemporain'],
       %w[Atelier Atelier],
       %w[BD BD],
@@ -45,6 +44,6 @@ module EventsHelper
   end
 
   def tag_options
-    TAG_OPTIONS
+    options_for_select(TAG_OPTIONS, [])
   end
 end

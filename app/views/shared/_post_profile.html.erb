@@ -12,15 +12,6 @@
         <% end %>
       </div>
       <div class="font-bold text-sm mb-2"><%= address %></div>
-      <p class="text-gray-700 text-base mb-2">
-        <%= body %><br>
-      </p>
-      <% unless description.blank? %>
-        <div class="font-bold text-sm mb-2">Description</div>
-        <div class="text-gray-700 text-base mb-2">
-          <%= sanitize description %>
-        </div>
-      <% end %>
       <% if tags %>
         <div class="flex flex-wrap pt-2">
           <% tags.each do |tag| %>
@@ -30,7 +21,15 @@
           <% end %>
         </div>
       <% end %>
-
+      <p class="text-gray-700 text-base mb-2">
+        <%= body %><br>
+      </p>
+      <% unless description.blank? %>
+        <div class="font-bold text-sm mb-2">Description</div>
+        <div class="text-gray-700 text-base mb-2">
+          <%= sanitize description %>
+        </div>
+      <% end %>
       <div class="flex flex-wrap pt-5">
         <%= link_to "Voir Lien", link, target: '_blank', class: 'text-center bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded mr-2' %>
         <%= link_to "Voir sur Google Maps", "https://www.google.com/maps/place/Paris#{CGI::escape([' ', address].join)}", target: '_blank', class: 'text-center bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded' %>

@@ -1,5 +1,5 @@
 <div class="w-full flex items-center justify-center pb-6">
-  <%= turbo_frame_tag :filters, class:'w-full', data: { "controller": "trigger-form", "trigger-form-event-value": "change" } do %>
+  <%= turbo_frame_tag :filters, class:'w-full', data: { "controller": "trigger-form slim-select", "trigger-form-event-value": "change", 'slim-select-placeholder-value': 'Select Tags' } do %>
     <%= form_with url: posts_filters_path, data: { "turbo-frame" => true, "trigger-form-target": "form" } do |f| %>
       <div class="w-50 flex flex-wrap justify-around align-center">
         <%# <div class="relative my-4 border-b-2 focus-within:border-blue-500">
@@ -10,8 +10,8 @@
           <%#= f.text_field :title, class: 'block w-full appearance-none focus:outline-none bg-transparent border-none', placeholder: "", data: { "trigger-form-target": "trigger" } %>
           <%#= f.label :title, class: 'absolute top-0 -z-1 duration-300 origin-0', placeholder: ' ' %>
         <%# </div> %>
-        <div class="relative my-4 border-b-2 focus-within:border-blue-500">
-          <%= f.select :tags, tag_options, {}, { class: "block w-full appearance-none focus:outline-none bg-transparent border-none", multiple: false, data: { 'trigger-form-target': 'trigger' } }  %>
+        <div class="relative my-4 border-b-2 focus-within:border-blue-500" style="width:30%">
+          <%= f.select :tags, tag_options, {}, { class: "block w-full appearance-none focus:outline-none bg-transparent border-none", multiple: true, data: { 'slim-select-target': 'select', 'trigger-form-target': 'trigger' } }  %>
           <%= f.label :tags, class: 'absolute top-0 left-0 -z-1 duration-300 origin-0', placeholder: ' ' %>
         </div>
         <div class="relative my-4 border-b-2 focus-within:border-blue-500">
