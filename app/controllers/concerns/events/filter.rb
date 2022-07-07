@@ -30,7 +30,7 @@ module Events
           facet=price_type&
           refine.address_city=Paris&
           refine.price_type=gratuit&
-          timezone=Europe/Paris&
+          timezone=UTC&
         URL
           .delete("\n").delete(" ")
           .concat(tag_params(tags))

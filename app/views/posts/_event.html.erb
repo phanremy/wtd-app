@@ -3,7 +3,7 @@
                                  image: event['fields']['cover_url'],
                                  title: event['fields']['title'],
                                  body: event['fields']['lead_text'],
-                                 address: event['fields']['address_street'],
+                                 address: [event['fields']['address_street'], event['fields']['address_zipcode'], event['fields']['address_city']].join(', '),
                                  starting_date: event['fields']['date_start'],
                                  ending_date: event['fields']['date_end'],
                                  date_description: event['fields']['date_description'],
