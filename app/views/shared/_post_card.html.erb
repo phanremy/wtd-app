@@ -1,6 +1,6 @@
 <% image_src = image || 'https://source.unsplash.com/random/300×300' %>
 <div class="flex items-center justify-center" data-controller="modal-open">
-  <div class="max-w-sm rounded overflow-hidden shadow-lg mb-2 mx-1 cursor-pointer" style="min-width: 384px!important" data-action="click->modal-open#process">
+  <div class="md:max-w-xl sm:max-w-md rounded overflow-hidden shadow-lg mb-2 mx-1 cursor-pointer" style="min-width: 384px!important" data-action="click->modal-open#process">
     <div class="h-80 w-full" style="background-image:url(<%= image_src %>); background-position: center; background-repeat: no-repeat; background-size: cover;">
     </div>
     <div class="px-6 py-4">

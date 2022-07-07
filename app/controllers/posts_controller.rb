@@ -13,6 +13,7 @@ class PostsController < ApplicationController
   def index
     @posts = Post.accessible_by(current_ability)
     @events = filtered_events(tags: [],
+                              price: 'gratuit',
                               starting_date: Time.zone.today.strftime('%Y-%m-%d'),
                               ending_date: Time.zone.today.strftime('%Y-%m-%d'))
   end

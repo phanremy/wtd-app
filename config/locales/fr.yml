@@ -2,3 +2,7 @@ fr:
   time:
     formats:
       default: "%e %b %Y"
+  shared:
+    filters:
+      starting_date: Date de début
+      ending_date: Date de fin

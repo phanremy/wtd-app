@@ -11,10 +11,9 @@ import SlimSelect from 'slim-select'
  */
 export default class extends Controller {
   static targets = ['select']
-  static value = ['placeholder']
+  static values = {  placeholder: String }
 
   connect () {
-    console.log('controller connected')
     this.select = this.fillSelect()
   }
 

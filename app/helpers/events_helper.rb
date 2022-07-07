@@ -37,6 +37,13 @@ module EventsHelper
       %w[Théâtre Theatre]
     ].freeze
 
+  PRICE_OPTIONS =
+    [
+      %w[gratuit gratuit],
+      ['gratuit sous condition', 'gratuit+sous+condition'],
+      %w[payant payant]
+    ].freeze
+
   def parse_tags(string)
     return [] unless string
 
@@ -45,5 +52,9 @@ module EventsHelper
 
   def tag_options
     options_for_select(TAG_OPTIONS, [])
+  end
+
+  def price_options
+    options_for_select(PRICE_OPTIONS, TAG_OPTIONS.first)
   end
 end

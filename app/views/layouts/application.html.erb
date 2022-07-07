@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>WTD in Paris</title>
+    <title>What to Do in Paris</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -18,5 +18,8 @@
       <% end %>
       <%= yield %>
     <% end %>
+    <div class="flex justify-center align-center">
+      Remerciement aux données de la <u><%= link_to 'ville de Paris', 'https://opendata.paris.fr/', class:'ml-1 cursor-pointer'%></u>
+    </div>
   </body>
 </html>

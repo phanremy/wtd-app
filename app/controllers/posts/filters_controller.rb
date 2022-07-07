@@ -12,7 +12,7 @@ module Posts
 
       @events = []
       if params[:starting_date].present?
-        @events = filtered_events(tags: tags,
+        @events = filtered_events(tags: tags, price: params[:price],
                                   starting_date: starting_date.strftime('%Y-%m-%d'),
                                   ending_date: ending_date.strftime('%Y-%m-%d'))
       end
