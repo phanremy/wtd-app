@@ -19,9 +19,9 @@ module Events
         <<-URL
           https://opendata.paris.fr/api/records/1.0/search/?
           dataset=que-faire-a-paris-&
-          q=date_start>='#{starting_date}T00:00:00Z'&
-          q=date_end>='#{ending_date}T00:00:00Z'&
-          sort=-date_start&
+          #{starting_date_params(starting_date)}
+          #{ending_date_params(ending_date)}
+          sort=-date_end&
           facet=date_start&
           facet=date_end&
           facet=tags&
@@ -36,6 +36,18 @@ module Events
           .concat(tag_params(tags))
       end
       # rubocop: enable Metrics/MethodLength
+
+      def starting_date_params(date)
+        return nil unless date
+
+        "q=date_start>='#{date}T00:00:00Z'&"
+      end
+
+      def ending_date_params(date)
+        return nil unless date
+
+        "q=date_end>='#{date}T00:00:00Z'&"
+      end
 
       def tag_params(tags)
         return '' if tags.all?(&:blank?)

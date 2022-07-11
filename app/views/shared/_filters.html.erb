@@ -10,22 +10,22 @@
           <%#= f.text_field :title, class: 'block w-full appearance-none focus:outline-none bg-transparent border-none', placeholder: "", data: { "trigger-form-target": "trigger" } %>
           <%#= f.label :title, class: 'absolute top-0 -z-1 duration-300 origin-0', placeholder: ' ' %>
         <%# </div> %>
-        <div class="flex sm:w-full md:w-1/2 sm:w-full justify-center align-center sm:mx-2">
-          <div class="relative my-4 focus-within:border-blue-500 w-1/2 sm:mx-2" data-controller="slim-select" data-slim-select-placeholder-value="Selectionner des Tags">
+        <div class="flex w-full md:w-1/2 sm:w-full justify-center align-center mx-2">
+          <div class="relative my-4 focus-within:border-blue-500 w-1/2 mx-2" data-controller="slim-select" data-slim-select-placeholder-value="Selectionner des Tags">
             <%= f.select :tags, tag_options, {}, { class: "block w-full appearance-none focus:outline-none bg-transparent border-none", multiple: true, data: { 'slim-select-target': 'select', 'trigger-form-target': 'trigger' } }  %>
             <%= f.label :tags, class: 'absolute top-0 left-0 -z-1 duration-300 origin-0', placeholder: ' ' %>
           </div>
-          <div class="relative my-4 focus-within:border-blue-500 w-1/2 sm:mx-2" data-controller="slim-select" data-slim-select-placeholder-value="Selectionner un Prix">
+          <div class="relative my-4 focus-within:border-blue-500 w-1/2 mx-2" data-controller="slim-select" data-slim-select-placeholder-value="Selectionner un Prix">
             <%= f.select :price, price_options, {}, { class: "block w-full appearance-none focus:outline-none bg-transparent border-none", multiple: false, data: { 'slim-select-target': 'select', 'trigger-form-target': 'trigger' } }  %>
             <%= f.label :prix, class: 'absolute top-0 left-0 -z-1 duration-300 origin-0', placeholder: ' ' %>
           </div>
         </div>
-        <div class="flex sm:w-full md:w-1/2 sm:w-full justify-center align-center sm:mx-2">
-          <div class="relative my-4 border-b-2 focus-within:border-blue-500 w-1/2 sm:mx-2">
-            <%= f.date_field :starting_date, value: Time.zone.today, class: 'block w-full appearance-none focus:outline-none bg-transparent border-none', data: { "trigger-form-target": "trigger" } %>
+        <div class="flex w-full md:w-1/2 sm:w-full justify-center align-center mx-2">
+          <div class="relative my-4 border-b-2 focus-within:border-blue-500 w-1/2 mx-2">
+            <%= f.date_field :starting_date, class: 'block w-full appearance-none focus:outline-none bg-transparent border-none', data: { "trigger-form-target": "trigger" } %>
             <%= f.label :starting_date, t('.starting_date'), class: 'absolute top-0 left-0 -z-1 duration-300 origin-0' %>
           </div>
-          <div class="relative my-4 border-b-2 focus-within:border-blue-500 w-1/2 sm:mx-2">
+          <div class="relative my-4 border-b-2 focus-within:border-blue-500 w-1/2 mx-2">
             <%= f.date_field :ending_date, value: Time.zone.today, class: 'block w-full appearance-none focus:outline-none bg-transparent border-none', data: { "trigger-form-target": "trigger" } %>
             <%= f.label :ending_date, t('.ending_date'), class: 'absolute top-0 left-0 -z-1 duration-300 origin-0' %>
           </div>

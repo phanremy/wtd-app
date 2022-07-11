@@ -11,11 +11,9 @@ module Posts
       @posts = Post.all
 
       @events = []
-      if params[:starting_date].present?
-        @events = filtered_events(tags: tags, price: params[:price],
-                                  starting_date: starting_date.strftime('%Y-%m-%d'),
-                                  ending_date: ending_date.strftime('%Y-%m-%d'))
-      end
+      @events = filtered_events(tags: tags, price: params[:price],
+                                starting_date: starting_date,
+                                ending_date: ending_date)
 
       render turbo_stream: turbo_stream.update('posts', partial: 'posts/posts',
                                                         locals: { posts: @posts,
@@ -25,11 +23,15 @@ module Posts
     private
 
     def starting_date
-      params[:starting_date].to_date
+      return nil if params[:starting_date].blank?
+
+      params[:starting_date].to_date.strftime('%Y-%m-%d')
     end
 
     def ending_date
-      params[:ending_date]&.to_date || starting_date
+      return nil if params[:ending_date].blank?
+
+      params[:ending_date].to_date.strftime('%Y-%m-%d')
     end
 
     def tags
