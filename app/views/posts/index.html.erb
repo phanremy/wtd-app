@@ -6,6 +6,13 @@
         <%= render 'shared/logo' %>
       <% end %>
     <% end %>
+    <div class="absolute top-0 right-0">
+      <%= link_to " https://docs.google.com/forms/d/e/1FAIpQLScpcU6ApCAKkMtxd4ld56lxZ-8MQsF4gimkCmMxEbFJIF2lhQ/viewform", target: '_blank', class:'', data: { "turbo-frame" => "_top" }  do %>
+        <div class="flex text-xs justify-end align-center pr-2 pt-5">
+          <%= render 'shared/google_form_logo' %>
+        </div>
+      <% end %>
+    </div>
   </div>
 <%= render 'shared/filters' %>
 

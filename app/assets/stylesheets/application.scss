@@ -1,3 +1,12 @@
+
+.hero-picture-height {
+  height: auto;
+}
+@media (min-width: 1024px) {
+  .hero-picture-height {
+    height: fit-content;
+  }
+}
 // .post__actions {
 //   width: 30%;
 //   display: flex;
