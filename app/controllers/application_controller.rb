@@ -25,4 +25,8 @@ class ApplicationController < ActionController::Base
   def render_flash
     render turbo_stream: turbo_stream.update('flash', partial: 'shared/flash')
   end
+
+  def default_url_options
+    { host: 'wtd-app.fly.dev' || "localhost:3000" }
+  end
 end

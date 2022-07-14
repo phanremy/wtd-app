@@ -1,0 +1,5 @@
+meta_product_name: "What to Do in Paris"
+meta_title: "What to Do in Paris"
+meta_description: "Trouver les évènements gratuits près de chez vous"
+meta_image: "components/og-image-menu.png" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards
