@@ -19,7 +19,7 @@
 
       <div class="font-bold text-sm mb-2"><%= address %></div>
       <p class="text-gray-700 text-base mb-2" style="height:72px !important">
-        <%= body.truncate(100, separator: '.')%><br>
+        <%= body&.truncate(100, separator: '.')%><br>
       </p>
       <% if tags %>
         <div class="flex flex-wrap pt-2">
