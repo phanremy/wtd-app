@@ -7,6 +7,8 @@ ruby "3.0.3"
 gem 'acts_as_votable'
 # Use Ahoy for tracking visits
 gem "ahoy_matey"
+# Use Avo for dashboards
+gem 'avo'
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
 # Reduces boot times through caching; required in config/boot.rb
@@ -55,8 +57,6 @@ group :development, :test do
   gem "debug", platforms: %i[mri mingw x64_mingw]
   # Use Faker for seeding fake info
   gem 'faker'
-  # Use for Rails Locale
-  gem 'rails-i18n', '~> 7.0.0'
 end
 
 group :development do
