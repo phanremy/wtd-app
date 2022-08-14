@@ -8,6 +8,7 @@ module Posts
     before_action :authenticate_user!, except: %i[create]
 
     def create
+      ahoy.track "Filters create", language: "Ruby"
       @posts = Post.all
 
       @events = []

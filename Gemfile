@@ -5,6 +5,8 @@ ruby "3.0.3"
 
 # Use Acts as votable for upvotes
 gem 'acts_as_votable'
+# Use Ahoy for tracking visits
+gem "ahoy_matey"
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
 # Reduces boot times through caching; required in config/boot.rb

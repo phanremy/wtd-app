@@ -11,6 +11,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
 
   def index
+    ahoy.track "Posts index", language: "Ruby"
     @posts = Post.accessible_by(current_ability)
     @events = filtered_events(tags: [],
                               price: 'gratuit',
