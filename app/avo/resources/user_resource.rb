@@ -8,5 +8,6 @@ class UserResource < Avo::BaseResource
   field :id, as: :id
   field :email, as: :text
   field :password, as: :password
+  field :admin, as: :boolean
   # add fields here
 end

@@ -16,8 +16,10 @@ Avo.configure do |config|
   end
 
   ## == Authentication ==
-  # config.current_user_method = {}
-  # config.authenticate_with = {}
+  config.current_user_method = :current_user
+  config.authenticate_with do
+    redirect_to '/' unless current_user&.admin?
+  end
 
   ## == Authorization ==
   # config.authorization_methods = {

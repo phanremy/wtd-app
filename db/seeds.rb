@@ -15,7 +15,7 @@ def post_params
 end
 
 if Rails.env.development?
-  admin = User.create(email: 'admin@example.com', password: 'password')
+  admin = User.create(email: 'admin@example.com', password: 'password', admin: true)
   visitor = User.create(email: 'visitor@example.com', password: 'password')
 
   Post.create_with(post_params)
