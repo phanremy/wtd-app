@@ -6,10 +6,12 @@ class AhoyVisitResource < Avo::BaseResource
   #   scope.ransack(id_eq: params[:q], as: :text m: "or").result(distinct: false)
   # end
 
-  field :id, as: :text, as: :id
+  action DeleteSelected
+
+  field :id, as: :id
   field :visit_token, as: :text
   field :visitor_token, as: :text
-  field :user_id, as: :text
+  field :started_at, as: :text
   field :ip, as: :text
   field :referrer, as: :text
   field :referring_domain, as: :text
@@ -18,6 +20,7 @@ class AhoyVisitResource < Avo::BaseResource
   field :os, as: :text
   field :device_type, as: :text
   field :user_agent, as: :text
+  field :user_id, as: :text
   field :country, as: :text
   field :region, as: :text
   field :city, as: :text
@@ -31,5 +34,4 @@ class AhoyVisitResource < Avo::BaseResource
   field :app_version, as: :text
   field :os_version, as: :text
   field :platform, as: :text
-  field :started_at, as: :text
 end
