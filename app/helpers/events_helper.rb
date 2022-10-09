@@ -58,9 +58,19 @@ module EventsHelper
     options_for_select(PRICE_OPTIONS, TAG_OPTIONS.first)
   end
 
+  def create_calendar_google_link(title, starting_date, ending_date, body, address)
+    "https://calendar.google.com/calendar/u/0/r/eventedit" \
+    "#{"?text=#{CGI.escape(title)}" if title}" \
+      "&dates=#{CGI.escape((starting_date.to_datetime - 1.hour).strftime('%Y%m%dT%H%M%S'))}/" \
+      "#{CGI.escape((ending_date.to_datetime - 1.hour).strftime('%Y%m%dT%H%M%S'))}" \
+      "&ctz=#{Rails.application.config.time_zone}" \
+      "#{"&details=#{CGI.escape(body)}" if body}" \
+      "#{"&location=#{CGI.escape(address)}" if address}"
+  end
+
   def create_google_calendar_link(title, starting_date, ending_date, body, address)
-    "https://calendar.google.com/calendar/u/0/r/eventedit?" \
-      "#{"text=#{CGI.escape(title)}" if title}" \
+    "http://www.google.com/calendar/event?action=TEMPLATE" \
+      "#{"&text=#{CGI.escape(title)}" if title}" \
       "&dates=#{CGI.escape((starting_date.to_datetime - 1.hour).strftime('%Y%m%dT%H%M%S'))}/" \
       "#{CGI.escape((ending_date.to_datetime - 1.hour).strftime('%Y%m%dT%H%M%S'))}" \
       "&ctz=#{Rails.application.config.time_zone}" \
